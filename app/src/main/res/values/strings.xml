@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">FoodOrderApp</string>
+    <string name="enter_your_phone_no">Enter your Phone No</string>
+    <string name="enter_your_name">Enter your name</string>
+    <string name="delivery">Delivery</string>
+    <string name="pickup">Pickup</string>
+    <string name="customer_details">Customer Details</string>
+    <string name="enter_your_address">Enter your address</string>
+    <string name="enter_your_city">Enter your city</string>
+    <string name="enter_your_state">Enter your state</string>
+</resources>
