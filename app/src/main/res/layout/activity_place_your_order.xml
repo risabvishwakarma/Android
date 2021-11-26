@@ -11,16 +11,19 @@
         android:layout_height="wrap_content">
 
 
-        <TextView android:id="@+id/tvCustomerDetails"
+        <TextView
+            android:id="@+id/tvCustomerDetails"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
             android:layout_margin="10dp"
+            android:layout_marginTop="56dp"
             android:text="@string/customer_details"
             android:textSize="18sp"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.595"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView android:id="@+id/tvPickup"
             android:layout_width="wrap_content"
@@ -31,15 +34,16 @@
             android:textSize="18sp"
             android:textStyle="bold"/>
 
-        <androidx.appcompat.widget.SwitchCompat android:id="@+id/switchDelivery"
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switchDelivery"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvCustomerDetails"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
-            android:layout_marginBottom="10dp"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvCustomerDetails"
+            tools:ignore="SpeakableTextPresentCheck" />
 
         <TextView android:id="@+id/tvDelivery"
             android:layout_width="wrap_content"
@@ -54,17 +58,21 @@
             android:id="@+id/inputName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:cursorVisible="true"
             android:layout_marginStart="10dp"
             android:layout_marginTop="05dp"
             android:layout_marginEnd="10dp"
-            android:hint="@string/enter_your_name"
-
+            android:maxLength="30"
             android:minHeight="48dp"
+            android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:hint="Name"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/switchDelivery"
-            tools:ignore="TextContrastCheck"
-            android:autofillHints="" />
+            tools:ignore="TextContrastCheck,SpeakableTextPresentCheck"
+            tools:text="@tools:sample/full_names" />
 
         <EditText
             android:id="@+id/inputPhone"
@@ -73,14 +81,14 @@
             android:layout_marginStart="10dp"
             android:layout_marginTop="05dp"
             android:layout_marginEnd="10dp"
-            android:hint="@string/enter_your_phone_no"
             android:inputType="phone"
             android:maxLength="10"
+            android:hint="Phone Number"
             android:minHeight="48dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/inputName"
-            tools:ignore="Deprecated" />
+            tools:ignore="Deprecated,SpeakableTextPresentCheck" />
 
         <EditText android:id="@+id/inputAddress"
             android:layout_width="match_parent"
@@ -91,8 +99,10 @@
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
             android:layout_marginTop="05dp"
+            android:maxLength="50"
+            android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
             android:layout_marginBottom="05dp"
-            android:hint="@string/enter_your_address"
+            android:hint="Enter Your Address"
             android:visibility="gone"/>
 
         <EditText android:id="@+id/inputCity"
@@ -103,6 +113,8 @@
             app:layout_constraintTop_toBottomOf="@id/inputAddress"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
+            android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+            android:maxLength="20"
             android:layout_marginTop="05dp"
             android:layout_marginBottom="05dp"
             android:hint="@string/enter_your_city"
@@ -115,10 +127,12 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/inputCity"
             android:layout_marginStart="10dp"
+            android:maxLength="20"
+            android:hint="Enter Your State"
+            android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
             android:layout_marginEnd="10dp"
             android:layout_marginTop="05dp"
             android:layout_marginBottom="05dp"
-            android:hint="@string/enter_your_state"
             android:visibility="gone"/>
 
         <EditText android:id="@+id/inputZip"
@@ -130,8 +144,8 @@
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
             android:layout_marginTop="05dp"
+            android:hint="Enter Post Code"
             android:layout_marginBottom="05dp"
-            android:hint="Enter your pin"
             android:inputType="number"
             android:maxLength="6"
             android:visibility="gone"/>
@@ -154,42 +168,69 @@
             android:layout_marginStart="10dp"
             android:layout_marginTop="05dp"
             android:layout_marginEnd="10dp"
-            android:hint="Enter Card Number"
             android:inputType="number"
             android:maxLength="16"
             android:minHeight="48dp"
+            android:hint="Enter your card 16 digits"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvCardDetails" />
+            app:layout_constraintTop_toBottomOf="@id/tvCardDetails"
+            tools:ignore="SpeakableTextPresentCheck" />
 
-        <EditText android:id="@+id/inputCardExpiry"
-            android:layout_width="match_parent"
+        <EditText
+            android:id="@+id/inputCardExpiry"
+            android:layout_width="32dp"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/inputCardNumber"
             android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
             android:layout_marginTop="05dp"
-            android:layout_marginBottom="05dp"
-            android:hint="Enter Card expiry(mm/yyyy)"
             android:inputType="number"
-            android:maxLength="6"/>
+            android:text="0"
+            android:maxLength="2"
+            android:minHeight="48dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/inputCardNumber"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="100dp"
+            android:layout_marginHorizontal="2dp"
+            android:text="/"
+            android:textSize="32dp"
+            app:layout_constraintBottom_toBottomOf="@+id/inputCardExpiry"
+            app:layout_constraintStart_toEndOf="@+id/inputCardExpiry" />
+
+        <EditText
+            android:id="@+id/inputCardExpiry2"
+            android:layout_width="64dp"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:text="202"
+            android:maxLength="4"
+            android:minHeight="48dp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/inputCardExpiry"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/textView"
+            tools:ignore="SpeakableTextPresentCheck" />
 
         <EditText
             android:id="@+id/inputCardPin"
-            android:layout_width="match_parent"
+            android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginTop="05dp"
             android:layout_marginEnd="10dp"
-            android:hint="Enter Card pin(3 digits)"
+            android:layout_marginRight="100dp"
+            android:hint="CVV"
             android:inputType="number"
             android:maxLength="3"
             android:minHeight="48dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/inputCardExpiry" />
+
+            app:layout_constraintBaseline_toBaselineOf="@id/inputCardExpiry"
+            tools:ignore="TextFields" />
 
         <TextView android:id="@+id/tvTotalItems"
             android:layout_width="wrap_content"

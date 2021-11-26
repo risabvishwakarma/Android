@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.foodorderapp.R;
+
 import com.android.foodorderapp.model.RestaurantModel;
 import com.bumptech.glide.Glide;
 

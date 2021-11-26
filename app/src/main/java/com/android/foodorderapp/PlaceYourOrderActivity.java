@@ -1,5 +1,7 @@
 package com.android.foodorderapp;
 
+import static com.android.foodorderapp.R.id.inputCardNumber;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
@@ -27,15 +29,19 @@ import com.android.foodorderapp.model.Menu;
 import com.android.foodorderapp.model.RestaurantModel;
 import com.android.foodorderapp.model.Userinfo;
 
+import java.util.regex.Pattern;
+
 public class PlaceYourOrderActivity extends AppCompatActivity {
 
-    private EditText inputName, inputAddress, inputCity, inputState, inputZip,inputCardNumber, inputCardExpiry, inputCardPin,inputPhone ;
+    private EditText inputName, inputAddress, inputCity, inputState, inputZip,inputCardNumber, inputCardExpiry,inputCardExpiry2, inputCardPin,inputPhone ;
     private RecyclerView cartItemsRecyclerView;
     private TextView tvSubtotalAmount, tvDeliveryChargeAmount, tvDeliveryCharge, tvTotalAmount, buttonPlaceYourOrder;
     private SwitchCompat switchDelivery;
     private boolean isDeliveryOn;
     private PlaceYourOrderAdapter placeYourOrderAdapter;
     Userinfo userinfo;
+    ActionBar actionBar;
+    String uid ;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -44,7 +50,8 @@ public class PlaceYourOrderActivity extends AppCompatActivity {
         setContentView(R.layout.activity_place_your_order);
 
         RestaurantModel restaurantModel = getIntent().getParcelableExtra("RestaurantModel");
-        ActionBar actionBar = getSupportActionBar();
+        uid=getIntent().getStringExtra("uid");
+        actionBar = getSupportActionBar();
         actionBar.setTitle(restaurantModel.getName());
         actionBar.setSubtitle(restaurantModel.getAddress());
         actionBar.setDisplayHomeAsUpEnabled(true);
@@ -55,8 +62,9 @@ public class PlaceYourOrderActivity extends AppCompatActivity {
         inputCity = findViewById(R.id.inputCity);
         inputState = findViewById(R.id.inputState);
         inputZip = findViewById(R.id.inputZip);
-        inputCardNumber = findViewById(R.id.inputCardNumber);
+        inputCardNumber= findViewById(R.id.inputCardNumber);
         inputCardExpiry = findViewById(R.id.inputCardExpiry);
+        inputCardExpiry2=findViewById(R.id.inputCardExpiry2);
         inputCardPin = findViewById(R.id.inputCardPin);
         tvSubtotalAmount = findViewById(R.id.tvSubtotalAmount);
         tvDeliveryChargeAmount = findViewById(R.id.tvDeliveryChargeAmount);
@@ -64,7 +72,11 @@ public class PlaceYourOrderActivity extends AppCompatActivity {
         tvTotalAmount = findViewById(R.id.tvTotalAmount);
         buttonPlaceYourOrder = findViewById(R.id.buttonPlaceYourOrder);
         switchDelivery = findViewById(R.id.switchDelivery);
+        inputZip.setAutofillHints(View.AUTOFILL_HINT_POSTAL_CODE);
+        inputAddress.setAutofillHints(View.AUTOFILL_HINT_POSTAL_ADDRESS);
         inputCardNumber.setAutofillHints(View.AUTOFILL_HINT_CREDIT_CARD_NUMBER);
+        inputCardExpiry.setAutofillHints(View.AUTOFILL_HINT_CREDIT_CARD_EXPIRATION_MONTH);
+        inputCardExpiry2.setAutofillHints(View.AUTOFILL_HINT_CREDIT_CARD_EXPIRATION_YEAR);
 
         cartItemsRecyclerView = findViewById(R.id.cartItemsRecyclerView);
 
@@ -86,6 +98,7 @@ public class PlaceYourOrderActivity extends AppCompatActivity {
                     tvDeliveryChargeAmount.setVisibility(View.VISIBLE);
                     tvDeliveryCharge.setVisibility(View.VISIBLE);
                     isDeliveryOn = true;
+                    actionBar.hide();
                 } else {
                     inputAddress.setVisibility(View.GONE);
                     inputCity.setVisibility(View.GONE);
@@ -94,6 +107,7 @@ public class PlaceYourOrderActivity extends AppCompatActivity {
                     tvDeliveryChargeAmount.setVisibility(View.GONE);
                     tvDeliveryCharge.setVisibility(View.GONE);
                     isDeliveryOn = false;
+                    actionBar.show();
                 }
                 calculateTotalAmount(restaurantModel);
             }
@@ -118,36 +132,39 @@ public class PlaceYourOrderActivity extends AppCompatActivity {
     }
 
     private void onPlaceOrderButtonClick(RestaurantModel restaurantModel) {
-        if(TextUtils.isEmpty(inputName.getText().toString())) {
+        if(TextUtils.isEmpty(inputName.getText().toString().trim())) {
             inputName.setError("Please enter name ");
             return;
         }
-        else if(TextUtils.isEmpty(inputPhone.getText().toString())) {
+        else if(inputPhone.getText().toString().length()<10) {
             inputPhone.setError("Please enter Phone no. ");
             return;
         }
-        else if(isDeliveryOn && TextUtils.isEmpty(inputAddress.getText().toString())) {
-            inputAddress.setError("Please enter address ");
+        else if(isDeliveryOn && TextUtils.isEmpty(inputAddress.getText().toString().trim())) {
+            inputAddress.setError("Please enter valid address ");
             return;
-        }else if(isDeliveryOn && TextUtils.isEmpty(inputCity.getText().toString())) {
+        }else if(isDeliveryOn && TextUtils.isEmpty(inputCity.getText().toString().trim())) {
             inputCity.setError("Please enter city ");
             return;
-        }else if(isDeliveryOn && TextUtils.isEmpty(inputState.getText().toString())) {
+        }else if(isDeliveryOn && inputState.getText().toString().length()<6) {
             inputState.setError("Please enter Pin ");
             return;
-        }else if( TextUtils.isEmpty(inputCardNumber.getText().toString())) {
+        }else if( inputCardNumber.getText().toString().length()<16) {
             inputCardNumber.setError("Please enter card number ");
             return;
-        }else if( TextUtils.isEmpty(inputCardExpiry.getText().toString())) {
-            inputCardExpiry.setError("Please enter card expiry ");
-            return;
-        }else if( TextUtils.isEmpty(inputCardPin.getText().toString())) {
+        }else if( inputCardExpiry.getText().toString().equals("0")||Integer.parseInt(inputCardExpiry.getText().toString())>12 ) {
+            inputCardExpiry.setError("MM");
+            return;}
+        else if( !Pattern.matches("20[2-5][1-9]",inputCardExpiry2.getText().toString())) {
+                inputCardExpiry2.setError("YYYY");
+                return;}
+        else if( inputCardPin.getText().toString().length()<3) {
             inputCardPin.setError("Please enter card pin/cvv ");
             return;
         }
 
 
-         userinfo=new Userinfo(inputName.getText().toString(),inputPhone.getText().toString(),inputCardNumber.getText().toString(),inputCardExpiry.getText().toString(),inputCardPin.getText().toString(), inputAddress.getText().toString(),inputZip.getText().toString(),inputCity.getText().toString(),inputState.getText().toString());
+         userinfo=new Userinfo(inputName.getText().toString().trim(),inputPhone.getText().toString(),inputCardNumber.getText().toString(),inputCardExpiry.getText().toString(),inputCardPin.getText().toString(), inputAddress.getText().toString(),inputZip.getText().toString(),inputCity.getText().toString(),inputState.getText().toString());
       //  Toast.makeText(this, inputCardNumber.getText().toString(), Toast.LENGTH_SHORT).show();
         //start success activity..
 
@@ -162,6 +179,7 @@ public class PlaceYourOrderActivity extends AppCompatActivity {
        // System.out.println(userinfo);
         i.putExtra("User1",userinfo);
         i.putExtra("v1", restaurantModel);
+        i.putExtra("uid",uid);
        // Toast.makeText(this,"B"+String.valueOf(restaurantModel),Toast.LENGTH_LONG).show();
         startActivityForResult(i, 1000);
     }

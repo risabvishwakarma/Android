@@ -28,6 +28,7 @@ public class RestaurantMenuActivity extends AppCompatActivity implements MenuLis
     private MenuListAdapter menuListAdapter;
     private List<Menu> itemsInCartList;
     private int totalItemInCart = 0;
+    String uid ;
     private TextView buttonCheckout;
 
     @Override
@@ -36,7 +37,7 @@ public class RestaurantMenuActivity extends AppCompatActivity implements MenuLis
         setContentView(R.layout.activity_restaurant_menu);
 
         RestaurantModel restaurantModel = getIntent().getParcelableExtra("RestaurantModel");
-
+        uid=getIntent().getStringExtra("uid");
         ActionBar actionBar = getSupportActionBar();
         actionBar.setTitle(restaurantModel.getName());
         actionBar.setSubtitle(restaurantModel.getAddress());
@@ -45,6 +46,7 @@ public class RestaurantMenuActivity extends AppCompatActivity implements MenuLis
 
 
         menuList = restaurantModel.getMenus();
+
         initRecyclerView();
 
 
@@ -59,6 +61,7 @@ public class RestaurantMenuActivity extends AppCompatActivity implements MenuLis
                 restaurantModel.setMenus(itemsInCartList);
                 Intent i = new Intent(RestaurantMenuActivity.this, PlaceYourOrderActivity.class);
                 i.putExtra("RestaurantModel", restaurantModel);
+                i.putExtra("uid",uid);
                 startActivityForResult(i, 1000);
             }
         });

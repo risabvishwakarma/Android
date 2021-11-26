@@ -1,17 +1,19 @@
 package com.android.foodorderapp.adapters;
 
 import android.view.LayoutInflater;
+
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import com.android.foodorderapp.model.Menu;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.foodorderapp.R;
-import com.android.foodorderapp.model.Menu;
+
 import com.bumptech.glide.Glide;
 
 import java.util.List;
@@ -39,7 +41,7 @@ public class PlaceYourOrderAdapter extends RecyclerView.Adapter<PlaceYourOrderAd
     @Override
     public void onBindViewHolder(@NonNull PlaceYourOrderAdapter.MyViewHolder holder, int position) {
         holder.menuName.setText(menuList.get(position).getName());
-        holder.menuPrice.setText("Price: $"+String.format("%.2f", menuList.get(position).getPrice()*menuList.get(position).getTotalInCart()));
+        holder.menuPrice.setText("Price: ₹"+String.format("%.2f", menuList.get(position).getPrice()*menuList.get(position).getTotalInCart()));
         holder.menuQty.setText("Qty: " + menuList.get(position).getTotalInCart());
         Glide.with(holder.thumbImage)
                 .load(menuList.get(position).getUrl())

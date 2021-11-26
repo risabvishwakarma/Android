@@ -8,4 +8,9 @@
     <string name="enter_your_address">Enter your address</string>
     <string name="enter_your_city">Enter your city</string>
     <string name="enter_your_state">Enter your state</string>
+    <string name="logout">Logout</string>
+    <string name="google">Google</string>
+    <string name="history">History</string>
+
+
 </resources>

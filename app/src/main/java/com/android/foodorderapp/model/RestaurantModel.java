@@ -13,6 +13,9 @@ public class RestaurantModel implements Parcelable {
     private float delivery_charge;
     private Hours hours;
     private List<Menu> menus;
+    public  RestaurantModel(){
+
+    }
 
     public String getName() {
         return name;
