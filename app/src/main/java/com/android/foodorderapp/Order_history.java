@@ -1,6 +1,7 @@
 package com.android.foodorderapp;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -44,7 +45,11 @@ public class Order_history extends AppCompatActivity {
         rv=findViewById(R.id.recyclerviewHistory);
         sv=findViewById(R.id.swip);
         db = FirebaseFirestore.getInstance();
-        Toast.makeText(this, "String.valueOf(rma.size())", Toast.LENGTH_SHORT).show();
+        ActionBar actionBar = getSupportActionBar();
+        assert actionBar != null;
+        actionBar.setTitle("Orders History");
+        actionBar.setDisplayHomeAsUpEnabled(true);
+       // Toast.makeText(this, "String.valueOf(rma.size())", Toast.LENGTH_SHORT).show();
         rma=new ArrayList<>();
 //        sv.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
 //            @Override
@@ -96,10 +101,12 @@ public class Order_history extends AppCompatActivity {
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                        // RestaurantModel[] r=new RestaurantModel[100];
                         if (task.isSuccessful() && task.getResult().size()>rma.size()) {
-                            int i=0;
+
                             for (QueryDocumentSnapshot document : task.getResult()) {
                                 mp=document.getData();
                                 rma.add(mp);
+//                                List<Map<String,Object>> mp2=(List<Map<String,Object>>)mp.get("Items");
+//                                mp2.get(0).get("name");
 //                                mp = document.getData();
 //                                mn=new ArrayList<Object>();
 //                                RestaurantModel rm = new RestaurantModel();
@@ -110,7 +117,7 @@ public class Order_history extends AppCompatActivity {
 //
 //                               mn.add(mp.get("Items"));
 //
-//                                Toast.makeText(Order_history.this,mn.get(0).,Toast.LENGTH_LONG).show();
+                             // Toast.makeText(Order_history.this,mp2.get(0).get("name").toString(),Toast.LENGTH_LONG).show();
 //                               // rma= Arrays.asList(r);
 //                                Log.d(TAG, document.getId() + " => " +mp.get("Restorent_Name"));
 //                                rma.add(rm);

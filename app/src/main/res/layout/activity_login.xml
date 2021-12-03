@@ -6,31 +6,31 @@
     android:layout_height="match_parent"
     tools:context=".Login">
 
-    <Button
-        android:id="@+id/GoogleSignIn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/google"
-        android:onClick="signIn"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/guideline"
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="267dp"
+        android:layout_height="267dp"
+        android:layout_marginTop="104dp"
+
+        android:src="@drawable/ic_fsplash"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.465"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/Logout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/logout"
-        android:onClick="Logout"
-        app:layout_constraintBaseline_toBaselineOf="@+id/GoogleSignIn"
+    <com.google.android.gms.common.SignInButton
+        android:id="@+id/GoogleSignIn"
+        android:layout_width="275dp"
+        android:layout_height="67dp"
+        android:text="SIGNIN"
+        android:textSize="20sp"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/guideline" />
+        app:layout_constraintHorizontal_bias="0.434"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.54" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="205dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

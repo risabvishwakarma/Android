@@ -192,7 +192,7 @@ public class PlaceYourOrderActivity extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        Toast.makeText(this, "Place your order", Toast.LENGTH_SHORT).show();
+     //   Toast.makeText(this, "Place your order", Toast.LENGTH_SHORT).show();
         if(requestCode == 1000) {
             setResult(Activity.RESULT_OK);
             finish();

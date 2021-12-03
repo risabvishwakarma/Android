@@ -28,9 +28,9 @@ public class RestaurantMenuActivity extends AppCompatActivity implements MenuLis
     private MenuListAdapter menuListAdapter;
     private List<Menu> itemsInCartList;
     private int totalItemInCart = 0;
-    String uid ;
+   private String uid ;
     private TextView buttonCheckout;
-
+    int aBool=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,20 +42,18 @@ public class RestaurantMenuActivity extends AppCompatActivity implements MenuLis
         actionBar.setTitle(restaurantModel.getName());
         actionBar.setSubtitle(restaurantModel.getAddress());
         actionBar.setDisplayHomeAsUpEnabled(true);
-
-
-
+        itemsInCartList = new ArrayList<>();
         menuList = restaurantModel.getMenus();
-
         initRecyclerView();
 
-
-         buttonCheckout = findViewById(R.id.buttonCheckout);
+        buttonCheckout = findViewById(R.id.buttonCheckout);
         buttonCheckout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(itemsInCartList != null && itemsInCartList.size() <= 0) {
-                    Toast.makeText(RestaurantMenuActivity.this, "Please add some items in cart.", Toast.LENGTH_SHORT).show();
+                if(null!=itemsInCartList && itemsInCartList.size() <= 0) {
+                    if(aBool<2) {
+                        Toast.makeText(RestaurantMenuActivity.this, "Please add some items in cart.", Toast.LENGTH_SHORT).show();
+                   aBool++; }
                     return;
                 }
                 restaurantModel.setMenus(itemsInCartList);
@@ -76,9 +74,10 @@ public class RestaurantMenuActivity extends AppCompatActivity implements MenuLis
 
     @Override
     public void onAddToCartClick(Menu menu) {
-        if(itemsInCartList == null) {
-            itemsInCartList = new ArrayList<>();
-        }
+//        if(itemsInCartList == null) {
+//            itemsInCartList = new ArrayList<>();
+//        }
+        aBool=0;
         itemsInCartList.add(menu);
         totalItemInCart = 0;
 
@@ -90,6 +89,7 @@ public class RestaurantMenuActivity extends AppCompatActivity implements MenuLis
 
     @Override
     public void onUpdateCartClick(Menu menu) {
+        aBool=0;
         if(itemsInCartList.contains(menu)) {
             int index = itemsInCartList.indexOf(menu);
             itemsInCartList.remove(index);
@@ -106,6 +106,7 @@ public class RestaurantMenuActivity extends AppCompatActivity implements MenuLis
 
     @Override
     public void onRemoveFromCartClick(Menu menu) {
+        aBool=0;
         if(itemsInCartList.contains(menu)) {
             itemsInCartList.remove(menu);
             totalItemInCart = 0;

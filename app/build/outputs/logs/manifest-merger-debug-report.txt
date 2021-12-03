@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\risab\AndroidStudioProjects\FoodOrderApp\app\src\main\AndroidManifest.xml:2:1-39:12
-INJECTED from C:\Users\risab\AndroidStudioProjects\FoodOrderApp\app\src\main\AndroidManifest.xml:2:1-39:12
-INJECTED from C:\Users\risab\AndroidStudioProjects\FoodOrderApp\app\src\main\AndroidManifest.xml:2:1-39:12
-INJECTED from C:\Users\risab\AndroidStudioProjects\FoodOrderApp\app\src\main\AndroidManifest.xml:2:1-39:12
+ADDED from C:\Users\risab\AndroidStudioProjects\FoodOrderApp\app\src\main\AndroidManifest.xml:2:1-36:12
+INJECTED from C:\Users\risab\AndroidStudioProjects\FoodOrderApp\app\src\main\AndroidManifest.xml:2:1-36:12
+INJECTED from C:\Users\risab\AndroidStudioProjects\FoodOrderApp\app\src\main\AndroidManifest.xml:2:1-36:12
+INJECTED from C:\Users\risab\AndroidStudioProjects\FoodOrderApp\app\src\main\AndroidManifest.xml:2:1-36:12
 MERGED from [com.google.android.material:material:1.2.1] C:\Users\risab\.gradle\caches\transforms-3\970463d1df48b76ce3a89c62a13b38f2\transformed\material-1.2.1\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] C:\Users\risab\.gradle\caches\transforms-3\a66367bab65dc52e99589a8122cf0537\transformed\constraintlayout-2.0.4\AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.mediarouter:mediarouter:1.2.2] C:\Users\risab\.gradle\caches\transforms-3\8b79196693b6693a5fc11d2a449fd11a\transformed\mediarouter-1.2.2\AndroidManifest.xml:17:1-24:12
@@ -63,25 +63,25 @@ MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\risab\.gradle\ca
 MERGED from [androidx.print:print:1.0.0] C:\Users\risab\.gradle\caches\transforms-3\3c4cdcd2e9f2910d703350965f49f5be\transformed\print-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.annotation:annotation-experimental:1.0.0] C:\Users\risab\.gradle\caches\transforms-3\f33bcb2f5c49a496470aa54ba8b02aa6\transformed\jetified-annotation-experimental-1.0.0\AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.firebase:protolite-well-known-types:18.0.0] C:\Users\risab\.gradle\caches\transforms-3\97c9b5d86fced5e6f7a4cbd2f94853b9\transformed\jetified-protolite-well-known-types-18.0.0\AndroidManifest.xml:2:1-11:12
-INJECTED from C:\Users\risab\AndroidStudioProjects\FoodOrderApp\app\src\main\AndroidManifest.xml:2:1-39:12
-INJECTED from C:\Users\risab\AndroidStudioProjects\FoodOrderApp\app\src\main\AndroidManifest.xml:2:1-39:12
-INJECTED from C:\Users\risab\AndroidStudioProjects\FoodOrderApp\app\src\main\AndroidManifest.xml:2:1-39:12
+INJECTED from C:\Users\risab\AndroidStudioProjects\FoodOrderApp\app\src\main\AndroidManifest.xml:2:1-36:12
+INJECTED from C:\Users\risab\AndroidStudioProjects\FoodOrderApp\app\src\main\AndroidManifest.xml:2:1-36:12
+INJECTED from C:\Users\risab\AndroidStudioProjects\FoodOrderApp\app\src\main\AndroidManifest.xml:2:1-36:12
 	package
 		ADDED from C:\Users\risab\AndroidStudioProjects\FoodOrderApp\app\src\main\AndroidManifest.xml:3:5-39
 		INJECTED from C:\Users\risab\AndroidStudioProjects\FoodOrderApp\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\risab\AndroidStudioProjects\FoodOrderApp\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\risab\AndroidStudioProjects\FoodOrderApp\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\risab\AndroidStudioProjects\FoodOrderApp\app\src\main\AndroidManifest.xml:2:1-39:12
+		ADDED from C:\Users\risab\AndroidStudioProjects\FoodOrderApp\app\src\main\AndroidManifest.xml:2:1-36:12
 		INJECTED from C:\Users\risab\AndroidStudioProjects\FoodOrderApp\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from C:\Users\risab\AndroidStudioProjects\FoodOrderApp\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\risab\AndroidStudioProjects\FoodOrderApp\app\src\main\AndroidManifest.xml:2:1-39:12
+		ADDED from C:\Users\risab\AndroidStudioProjects\FoodOrderApp\app\src\main\AndroidManifest.xml:2:1-36:12
 		INJECTED from C:\Users\risab\AndroidStudioProjects\FoodOrderApp\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\risab\AndroidStudioProjects\FoodOrderApp\app\src\main\AndroidManifest.xml:2:11-69
 uses-permission#android.permission.ACCESS_NETWORK_STATE
-ADDED from C:\Users\risab\AndroidStudioProjects\FoodOrderApp\app\src\main\AndroidManifest.xml:5:5-79
+ADDED from C:\Users\risab\AndroidStudioProjects\FoodOrderApp\app\src\main\AndroidManifest.xml:6:5-79
 MERGED from [com.google.firebase:firebase-firestore:24.0.0] C:\Users\risab\.gradle\caches\transforms-3\d1716f973584b4b2af17a35d695ea6c1\transformed\jetified-firebase-firestore-24.0.0\AndroidManifest.xml:13:5-79
 MERGED from [com.google.firebase:firebase-firestore:24.0.0] C:\Users\risab\.gradle\caches\transforms-3\d1716f973584b4b2af17a35d695ea6c1\transformed\jetified-firebase-firestore-24.0.0\AndroidManifest.xml:13:5-79
 MERGED from [io.grpc:grpc-android:1.41.0] C:\Users\risab\.gradle\caches\transforms-3\0d32d35274e9316f6cb3cc28abf26edd\transformed\jetified-grpc-android-1.41.0\AndroidManifest.xml:11:5-79
@@ -89,17 +89,17 @@ MERGED from [io.grpc:grpc-android:1.41.0] C:\Users\risab\.gradle\caches\transfor
 MERGED from [com.google.firebase:firebase-auth:21.0.1] C:\Users\risab\.gradle\caches\transforms-3\bc92e791c177c44f8433e6c0958e860f\transformed\jetified-firebase-auth-21.0.1\AndroidManifest.xml:24:5-79
 MERGED from [com.google.firebase:firebase-auth:21.0.1] C:\Users\risab\.gradle\caches\transforms-3\bc92e791c177c44f8433e6c0958e860f\transformed\jetified-firebase-auth-21.0.1\AndroidManifest.xml:24:5-79
 	android:name
-		ADDED from C:\Users\risab\AndroidStudioProjects\FoodOrderApp\app\src\main\AndroidManifest.xml:5:22-76
+		ADDED from C:\Users\risab\AndroidStudioProjects\FoodOrderApp\app\src\main\AndroidManifest.xml:6:22-76
 uses-permission#android.permission.INTERNET
-ADDED from C:\Users\risab\AndroidStudioProjects\FoodOrderApp\app\src\main\AndroidManifest.xml:10:5-67
+ADDED from C:\Users\risab\AndroidStudioProjects\FoodOrderApp\app\src\main\AndroidManifest.xml:7:5-67
 MERGED from [com.google.firebase:firebase-firestore:24.0.0] C:\Users\risab\.gradle\caches\transforms-3\d1716f973584b4b2af17a35d695ea6c1\transformed\jetified-firebase-firestore-24.0.0\AndroidManifest.xml:14:5-67
 MERGED from [com.google.firebase:firebase-firestore:24.0.0] C:\Users\risab\.gradle\caches\transforms-3\d1716f973584b4b2af17a35d695ea6c1\transformed\jetified-firebase-firestore-24.0.0\AndroidManifest.xml:14:5-67
 MERGED from [com.google.firebase:firebase-auth:21.0.1] C:\Users\risab\.gradle\caches\transforms-3\bc92e791c177c44f8433e6c0958e860f\transformed\jetified-firebase-auth-21.0.1\AndroidManifest.xml:23:5-67
 MERGED from [com.google.firebase:firebase-auth:21.0.1] C:\Users\risab\.gradle\caches\transforms-3\bc92e791c177c44f8433e6c0958e860f\transformed\jetified-firebase-auth-21.0.1\AndroidManifest.xml:23:5-67
 	android:name
-		ADDED from C:\Users\risab\AndroidStudioProjects\FoodOrderApp\app\src\main\AndroidManifest.xml:10:22-64
+		ADDED from C:\Users\risab\AndroidStudioProjects\FoodOrderApp\app\src\main\AndroidManifest.xml:7:22-64
 application
-ADDED from C:\Users\risab\AndroidStudioProjects\FoodOrderApp\app\src\main\AndroidManifest.xml:12:5-37:19
+ADDED from C:\Users\risab\AndroidStudioProjects\FoodOrderApp\app\src\main\AndroidManifest.xml:9:5-34:19
 MERGED from [com.google.android.material:material:1.2.1] C:\Users\risab\.gradle\caches\transforms-3\970463d1df48b76ce3a89c62a13b38f2\transformed\material-1.2.1\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.2.1] C:\Users\risab\.gradle\caches\transforms-3\970463d1df48b76ce3a89c62a13b38f2\transformed\material-1.2.1\AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] C:\Users\risab\.gradle\caches\transforms-3\a66367bab65dc52e99589a8122cf0537\transformed\constraintlayout-2.0.4\AndroidManifest.xml:9:5-20
@@ -135,63 +135,63 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\ri
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.3.1] C:\Users\risab\.gradle\caches\transforms-3\07ec1dcdc826d42ddd52dac94d8be26b\transformed\core-1.3.1\AndroidManifest.xml:24:18-86
 	android:supportsRtl
-		ADDED from C:\Users\risab\AndroidStudioProjects\FoodOrderApp\app\src\main\AndroidManifest.xml:17:9-35
+		ADDED from C:\Users\risab\AndroidStudioProjects\FoodOrderApp\app\src\main\AndroidManifest.xml:14:9-35
 	android:label
-		ADDED from C:\Users\risab\AndroidStudioProjects\FoodOrderApp\app\src\main\AndroidManifest.xml:15:9-30
+		ADDED from C:\Users\risab\AndroidStudioProjects\FoodOrderApp\app\src\main\AndroidManifest.xml:12:9-30
 	android:roundIcon
-		ADDED from C:\Users\risab\AndroidStudioProjects\FoodOrderApp\app\src\main\AndroidManifest.xml:16:9-54
+		ADDED from C:\Users\risab\AndroidStudioProjects\FoodOrderApp\app\src\main\AndroidManifest.xml:13:9-54
 	android:icon
-		ADDED from C:\Users\risab\AndroidStudioProjects\FoodOrderApp\app\src\main\AndroidManifest.xml:14:9-54
+		ADDED from C:\Users\risab\AndroidStudioProjects\FoodOrderApp\app\src\main\AndroidManifest.xml:11:9-54
 	android:allowBackup
-		ADDED from C:\Users\risab\AndroidStudioProjects\FoodOrderApp\app\src\main\AndroidManifest.xml:13:9-35
+		ADDED from C:\Users\risab\AndroidStudioProjects\FoodOrderApp\app\src\main\AndroidManifest.xml:10:9-35
 	android:theme
-		ADDED from C:\Users\risab\AndroidStudioProjects\FoodOrderApp\app\src\main\AndroidManifest.xml:18:9-50
+		ADDED from C:\Users\risab\AndroidStudioProjects\FoodOrderApp\app\src\main\AndroidManifest.xml:15:9-50
 activity#com.android.foodorderapp.Order_history
+ADDED from C:\Users\risab\AndroidStudioProjects\FoodOrderApp\app\src\main\AndroidManifest.xml:16:9-18:40
+	android:exported
+		ADDED from C:\Users\risab\AndroidStudioProjects\FoodOrderApp\app\src\main\AndroidManifest.xml:18:13-37
+	android:name
+		ADDED from C:\Users\risab\AndroidStudioProjects\FoodOrderApp\app\src\main\AndroidManifest.xml:17:13-42
+activity#com.android.foodorderapp.Profile
 ADDED from C:\Users\risab\AndroidStudioProjects\FoodOrderApp\app\src\main\AndroidManifest.xml:19:9-21:40
 	android:exported
 		ADDED from C:\Users\risab\AndroidStudioProjects\FoodOrderApp\app\src\main\AndroidManifest.xml:21:13-37
 	android:name
-		ADDED from C:\Users\risab\AndroidStudioProjects\FoodOrderApp\app\src\main\AndroidManifest.xml:20:13-42
-activity#com.android.foodorderapp.Profile
-ADDED from C:\Users\risab\AndroidStudioProjects\FoodOrderApp\app\src\main\AndroidManifest.xml:22:9-24:40
-	android:exported
-		ADDED from C:\Users\risab\AndroidStudioProjects\FoodOrderApp\app\src\main\AndroidManifest.xml:24:13-37
-	android:name
-		ADDED from C:\Users\risab\AndroidStudioProjects\FoodOrderApp\app\src\main\AndroidManifest.xml:23:13-36
+		ADDED from C:\Users\risab\AndroidStudioProjects\FoodOrderApp\app\src\main\AndroidManifest.xml:20:13-36
 activity#com.android.foodorderapp.Login
-ADDED from C:\Users\risab\AndroidStudioProjects\FoodOrderApp\app\src\main\AndroidManifest.xml:25:9-43
+ADDED from C:\Users\risab\AndroidStudioProjects\FoodOrderApp\app\src\main\AndroidManifest.xml:22:9-43
 	android:name
-		ADDED from C:\Users\risab\AndroidStudioProjects\FoodOrderApp\app\src\main\AndroidManifest.xml:25:19-40
+		ADDED from C:\Users\risab\AndroidStudioProjects\FoodOrderApp\app\src\main\AndroidManifest.xml:22:19-40
 activity#com.android.foodorderapp.OrderSucceessActivity
-ADDED from C:\Users\risab\AndroidStudioProjects\FoodOrderApp\app\src\main\AndroidManifest.xml:26:9-59
+ADDED from C:\Users\risab\AndroidStudioProjects\FoodOrderApp\app\src\main\AndroidManifest.xml:23:9-59
 	android:name
-		ADDED from C:\Users\risab\AndroidStudioProjects\FoodOrderApp\app\src\main\AndroidManifest.xml:26:19-56
+		ADDED from C:\Users\risab\AndroidStudioProjects\FoodOrderApp\app\src\main\AndroidManifest.xml:23:19-56
 activity#com.android.foodorderapp.PlaceYourOrderActivity
-ADDED from C:\Users\risab\AndroidStudioProjects\FoodOrderApp\app\src\main\AndroidManifest.xml:27:9-60
+ADDED from C:\Users\risab\AndroidStudioProjects\FoodOrderApp\app\src\main\AndroidManifest.xml:24:9-60
 	android:name
-		ADDED from C:\Users\risab\AndroidStudioProjects\FoodOrderApp\app\src\main\AndroidManifest.xml:27:19-57
+		ADDED from C:\Users\risab\AndroidStudioProjects\FoodOrderApp\app\src\main\AndroidManifest.xml:24:19-57
 activity#com.android.foodorderapp.RestaurantMenuActivity
-ADDED from C:\Users\risab\AndroidStudioProjects\FoodOrderApp\app\src\main\AndroidManifest.xml:28:9-60
+ADDED from C:\Users\risab\AndroidStudioProjects\FoodOrderApp\app\src\main\AndroidManifest.xml:25:9-60
 	android:name
-		ADDED from C:\Users\risab\AndroidStudioProjects\FoodOrderApp\app\src\main\AndroidManifest.xml:28:19-57
+		ADDED from C:\Users\risab\AndroidStudioProjects\FoodOrderApp\app\src\main\AndroidManifest.xml:25:19-57
 activity#com.android.foodorderapp.SplashActivity
-ADDED from C:\Users\risab\AndroidStudioProjects\FoodOrderApp\app\src\main\AndroidManifest.xml:29:9-35:20
+ADDED from C:\Users\risab\AndroidStudioProjects\FoodOrderApp\app\src\main\AndroidManifest.xml:26:9-32:20
 	android:name
-		ADDED from C:\Users\risab\AndroidStudioProjects\FoodOrderApp\app\src\main\AndroidManifest.xml:29:19-49
+		ADDED from C:\Users\risab\AndroidStudioProjects\FoodOrderApp\app\src\main\AndroidManifest.xml:26:19-49
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\risab\AndroidStudioProjects\FoodOrderApp\app\src\main\AndroidManifest.xml:30:13-34:29
+ADDED from C:\Users\risab\AndroidStudioProjects\FoodOrderApp\app\src\main\AndroidManifest.xml:27:13-31:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\risab\AndroidStudioProjects\FoodOrderApp\app\src\main\AndroidManifest.xml:31:17-69
+ADDED from C:\Users\risab\AndroidStudioProjects\FoodOrderApp\app\src\main\AndroidManifest.xml:28:17-69
 	android:name
-		ADDED from C:\Users\risab\AndroidStudioProjects\FoodOrderApp\app\src\main\AndroidManifest.xml:31:25-66
+		ADDED from C:\Users\risab\AndroidStudioProjects\FoodOrderApp\app\src\main\AndroidManifest.xml:28:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\risab\AndroidStudioProjects\FoodOrderApp\app\src\main\AndroidManifest.xml:33:17-77
+ADDED from C:\Users\risab\AndroidStudioProjects\FoodOrderApp\app\src\main\AndroidManifest.xml:30:17-77
 	android:name
-		ADDED from C:\Users\risab\AndroidStudioProjects\FoodOrderApp\app\src\main\AndroidManifest.xml:33:27-74
+		ADDED from C:\Users\risab\AndroidStudioProjects\FoodOrderApp\app\src\main\AndroidManifest.xml:30:27-74
 activity#com.android.foodorderapp.MainActivity
-ADDED from C:\Users\risab\AndroidStudioProjects\FoodOrderApp\app\src\main\AndroidManifest.xml:36:9-50
+ADDED from C:\Users\risab\AndroidStudioProjects\FoodOrderApp\app\src\main\AndroidManifest.xml:33:9-50
 	android:name
-		ADDED from C:\Users\risab\AndroidStudioProjects\FoodOrderApp\app\src\main\AndroidManifest.xml:36:19-47
+		ADDED from C:\Users\risab\AndroidStudioProjects\FoodOrderApp\app\src\main\AndroidManifest.xml:33:19-47
 uses-sdk
 INJECTED from C:\Users\risab\AndroidStudioProjects\FoodOrderApp\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\risab\AndroidStudioProjects\FoodOrderApp\app\src\main\AndroidManifest.xml

@@ -33,6 +33,15 @@
             app:layout_constraintTop_toBottomOf="@+id/Restorent_Name"
             tools:layout_editor_absoluteX="0dp" />
 
+
+        <TextView
+            android:id="@+id/Price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Price"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@+id/Items"
+            tools:layout_editor_absoluteX="16dp" />
         <TextView
             android:id="@+id/Date"
             android:layout_width="match_parent"

@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Activity;
+import android.app.TaskInfo;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
@@ -49,13 +50,15 @@ public class MainActivity extends AppCompatActivity implements RestaurantListAda
     List<RestaurantModel> restList=null;
     RestaurantListAdapter adapter=null;
     FirebaseUser user;
+    private boolean aBoolean=false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        aBoolean=false;
         Bundle data = getIntent().getExtras();
         user=data.getParcelable("account");
-        Toast.makeText(MainActivity.this, user.getPhoneNumber(), Toast.LENGTH_SHORT).show();
+     //   Toast.makeText(MainActivity.this, user.getPhoneNumber(), Toast.LENGTH_SHORT).show();
         Log.d("USER",user.getPhoneNumber());
 
         ActionBar actionBar = getSupportActionBar();      //setting of a tittle
@@ -64,6 +67,7 @@ public class MainActivity extends AppCompatActivity implements RestaurantListAda
         List<RestaurantModel> restaurantModelList =  getRestaurantData();
 
         initRecyclerView(restaurantModelList);
+      //  Toast.makeText(this, String.valueOf(TaskInfo), Toast.LENGTH_SHORT).show();
     }
 
     private void initRecyclerView(List<RestaurantModel> restaurantModelList ) {
@@ -198,10 +202,12 @@ public class MainActivity extends AppCompatActivity implements RestaurantListAda
     }
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
-        setResult(Activity.RESULT_CANCELED);
-        setContentView(R.layout.activity_login);
 
-        finish();
+        if(aBoolean){
+            super.onBackPressed();
+     //   setResult(Activity.RESULT_CANCELED);
+            finish();}
+        aBoolean=true;
+
     }
 }

@@ -1900,10 +1900,10 @@ id FUNCTION
 id GoogleSignIn
 id History
 id Items
-id Logout
 id META
 id NO_DEBUG
 id Name
+id Price
 id Profile
 id Restorent_Name
 id SHIFT
@@ -2022,6 +2022,7 @@ id chronometer
 id clear_text
 id clip_horizontal
 id clip_vertical
+id cm
 id collapseActionView
 id confirm_button
 id container
@@ -2089,7 +2090,6 @@ id graph_wrap
 id group_divider
 id grouping
 id groups
-id guideline
 id hideable
 id home
 id homeAsUp
@@ -2103,6 +2103,7 @@ id ignoreRequest
 id image
 id imageAddOne
 id imageMinus
+id imageView
 id info
 id inputAddress
 id inputCardExpiry
@@ -2339,6 +2340,7 @@ id textSpacerNoTitle
 id textStart
 id textView
 id textView2
+id textView3
 id text_input_end_icon
 id text_input_start_icon
 id textinput_counter

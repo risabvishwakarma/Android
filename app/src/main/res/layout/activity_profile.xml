@@ -6,16 +6,27 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Profile">
-    <ImageView
-        android:id="@+id/userImage"
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cm"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:onClick="signInPage"
-        android:layout_marginHorizontal="50sp"
+        android:layout_centerHorizontal="true"
+        app:cardCornerRadius="100dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="155dp"
+        tools:layout_editor_absoluteY="0dp">
+
+        <ImageView
+            android:id="@+id/userImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/common_full_open_on_phone" />
+    </androidx.cardview.widget.CardView>
 
     <TextView
         android:id="@+id/Name"
@@ -26,7 +37,7 @@
         android:layout_marginHorizontal="25dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/userImage" />
+        app:layout_constraintTop_toBottomOf="@+id/cm" />
 
     <TextView
         android:id="@+id/gmail"
@@ -38,5 +49,20 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Name" />
+
+
+    <Button
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Logout"
+        android:textSize="20sp"
+        android:onClick="signInPage"
+        android:textStyle="bold"
+        android:layout_marginHorizontal="25dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gmail" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

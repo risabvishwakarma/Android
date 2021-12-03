@@ -16,6 +16,7 @@ public class SplashActivity extends AppCompatActivity {
 
 
         ActionBar actionBar = getSupportActionBar();
+        assert actionBar != null;
         actionBar.hide();
 
         new Handler().postDelayed(new Runnable() {
