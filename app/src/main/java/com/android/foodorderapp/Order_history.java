@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
@@ -48,7 +49,7 @@ public class Order_history extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         assert actionBar != null;
         actionBar.setTitle("Orders History");
-        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setDisplayHomeAsUpEnabled(false);
        // Toast.makeText(this, "String.valueOf(rma.size())", Toast.LENGTH_SHORT).show();
         rma=new ArrayList<>();
 //        sv.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -100,11 +101,14 @@ public class Order_history extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                        // RestaurantModel[] r=new RestaurantModel[100];
+
                         if (task.isSuccessful() && task.getResult().size()>rma.size()) {
 
                             for (QueryDocumentSnapshot document : task.getResult()) {
+
                                 mp=document.getData();
                                 rma.add(mp);
+
 //                                List<Map<String,Object>> mp2=(List<Map<String,Object>>)mp.get("Items");
 //                                mp2.get(0).get("name");
 //                                mp = document.getData();
@@ -138,7 +142,11 @@ sv.setRefreshing(false);
 
 
 
-
+    public void onBackPressed() {
+        super.onBackPressed();
+        setResult(Activity.RESULT_CANCELED);
+        finish();
+    }
 
 
 }

@@ -25,7 +25,7 @@ import java.util.List;
 
 public class RestaurantMenuActivity extends AppCompatActivity implements MenuListAdapter.MenuListClickListener {
     private List<Menu> menuList = null;
-    private MenuListAdapter menuListAdapter;
+    private MenuListAdapter menuListAdapter=null;
     private List<Menu> itemsInCartList;
     private int totalItemInCart = 0;
    private String uid ;
@@ -42,7 +42,7 @@ public class RestaurantMenuActivity extends AppCompatActivity implements MenuLis
         actionBar.setTitle(restaurantModel.getName());
         actionBar.setSubtitle(restaurantModel.getAddress());
         actionBar.setDisplayHomeAsUpEnabled(true);
-        itemsInCartList = new ArrayList<>();
+       // itemsInCartList = new ArrayList<>();
         menuList = restaurantModel.getMenus();
         initRecyclerView();
 
@@ -50,17 +50,18 @@ public class RestaurantMenuActivity extends AppCompatActivity implements MenuLis
         buttonCheckout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(null!=itemsInCartList && itemsInCartList.size() <= 0) {
+                if(null!=itemsInCartList && itemsInCartList.size() > 0) {
+                    restaurantModel.setMenus(itemsInCartList);
+                    Intent i = new Intent(RestaurantMenuActivity.this, PlaceYourOrderActivity.class);
+                    i.putExtra("RestaurantModel", restaurantModel);
+                    i.putExtra("uid",uid);
+                    startActivityForResult(i, 1000);
+                }
+                else{
                     if(aBool<2) {
                         Toast.makeText(RestaurantMenuActivity.this, "Please add some items in cart.", Toast.LENGTH_SHORT).show();
-                   aBool++; }
-                    return;
+                        aBool++; }
                 }
-                restaurantModel.setMenus(itemsInCartList);
-                Intent i = new Intent(RestaurantMenuActivity.this, PlaceYourOrderActivity.class);
-                i.putExtra("RestaurantModel", restaurantModel);
-                i.putExtra("uid",uid);
-                startActivityForResult(i, 1000);
             }
         });
     }
@@ -74,9 +75,9 @@ public class RestaurantMenuActivity extends AppCompatActivity implements MenuLis
 
     @Override
     public void onAddToCartClick(Menu menu) {
-//        if(itemsInCartList == null) {
-//            itemsInCartList = new ArrayList<>();
-//        }
+        if(itemsInCartList == null) {
+            itemsInCartList = new ArrayList<>();
+        }
         aBool=0;
         itemsInCartList.add(menu);
         totalItemInCart = 0;

@@ -29,6 +29,7 @@ import java.util.Map;
 
 public class OrderSucceessActivity extends AppCompatActivity {
     FirebaseFirestore db = FirebaseFirestore.getInstance();
+
     TextView orderNo,status;
     TextView buttonDone;
     String uid;

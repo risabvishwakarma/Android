@@ -34,6 +34,8 @@ public class Profile extends AppCompatActivity {
             ActionBar actionBar = getSupportActionBar();
             assert actionBar != null;
             actionBar.setTitle("Profile");
+
+
          //   actionBar.setDisplayHomeAsUpEnabled(true);
             Bundle data = getIntent().getExtras();
             user=data.getParcelable("account");
@@ -57,6 +59,7 @@ public class Profile extends AppCompatActivity {
             Gmail=findViewById(R.id.gmail);
             Glide.with(Profile.this)
                     .load(user.getPhotoUrl())
+                    .circleCrop()
                     .into(ProfileImage);
             Name.setText(user.getDisplayName());
             Gmail.setText(user.getEmail());

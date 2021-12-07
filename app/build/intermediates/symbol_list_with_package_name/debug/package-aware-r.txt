@@ -2022,7 +2022,6 @@ id chronometer
 id clear_text
 id clip_horizontal
 id clip_vertical
-id cm
 id collapseActionView
 id confirm_button
 id container
@@ -2090,6 +2089,7 @@ id graph_wrap
 id group_divider
 id grouping
 id groups
+id guideline
 id hideable
 id home
 id homeAsUp
@@ -2629,6 +2629,7 @@ string common_signin_button_text_long
 string customer_details
 string default_web_client_id
 string delivery
+string done
 string enter_your_address
 string enter_your_city
 string enter_your_name
@@ -2717,6 +2718,7 @@ string path_password_eye_mask_strike_through
 string path_password_eye_mask_visible
 string path_password_strike_through
 string pickup
+string please_wait
 string project_id
 string search_menu_title
 string status_bar_notification_info_overflow

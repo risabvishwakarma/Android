@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".PlaceYourOrderActivity"
+    app:tint="@color/purple_700"
         >
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -82,7 +83,7 @@
             android:layout_marginTop="05dp"
             android:layout_marginEnd="10dp"
             android:inputType="phone"
-            android:maxLength="10"
+            android:maxLength="12"
             android:hint="Phone Number"
             android:minHeight="48dp"
             app:layout_constraintEnd_toEndOf="parent"

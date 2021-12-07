@@ -205,7 +205,7 @@ public class MainActivity extends AppCompatActivity implements RestaurantListAda
 
         if(aBoolean){
             super.onBackPressed();
-     //   setResult(Activity.RESULT_CANCELED);
+       setResult(Activity.RESULT_CANCELED);
             finish();}
         aBoolean=true;
 

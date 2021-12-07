@@ -1,7 +1,5 @@
 package com.android.foodorderapp;
 
-import static com.android.foodorderapp.R.id.inputCardNumber;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
@@ -13,10 +11,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.icu.text.SimpleDateFormat;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.CompoundButton;
@@ -28,6 +26,7 @@ import com.android.foodorderapp.adapters.PlaceYourOrderAdapter;
 import com.android.foodorderapp.model.Menu;
 import com.android.foodorderapp.model.RestaurantModel;
 import com.android.foodorderapp.model.Userinfo;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.regex.Pattern;
 
@@ -42,6 +41,7 @@ public class PlaceYourOrderActivity extends AppCompatActivity {
     Userinfo userinfo;
     ActionBar actionBar;
     String uid ;
+
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -114,11 +114,27 @@ public class PlaceYourOrderActivity extends AppCompatActivity {
         });
         initRecyclerView(restaurantModel);
         calculateTotalAmount(restaurantModel);
+       // Toast.makeText(this, year(), Toast.LENGTH_SHORT).show();
+
     }
+
+
+    private int getDate() {
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM");
+        String dateString = simpleDateFormat.format(System.currentTimeMillis());
+        return  Integer.parseInt(dateString);
+    }
+    private int year() {
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("YYYYMM");
+        String dateString = simpleDateFormat.format(System.currentTimeMillis());
+
+        return  Integer.parseInt(dateString);
+    }
+
 
     private void calculateTotalAmount(RestaurantModel restaurantModel) {
         float subTotalAmount = 0f;
-
+            if( restaurantModel.getMenus()!=null)
         for(Menu m : restaurantModel.getMenus()) {
             subTotalAmount += m.getPrice() * m.getTotalInCart();
         }
@@ -131,35 +147,122 @@ public class PlaceYourOrderActivity extends AppCompatActivity {
         tvTotalAmount.setText("₹"+String.format("%.2f", subTotalAmount));
     }
 
+    private boolean isValid(long number)
+    {
+        return (getSize(number) >= 13 &&
+                getSize(number) <= 16) &&
+                (prefixMatched(number, 4) ||
+                        prefixMatched(number, 5) ||
+                        prefixMatched(number, 37) ||
+                        prefixMatched(number, 6)) &&
+                ((sumOfDoubleEvenPlace(number) +
+                        sumOfOddPlace(number)) % 10 == 0);
+    }
+
+    // Get the result from Step 2
+    private int sumOfDoubleEvenPlace(long number)
+    {
+        int sum = 0;
+        String num = number + "";
+        for (int i = getSize(number) - 2; i >= 0; i -= 2)
+            sum += getDigit(Integer.parseInt(num.charAt(i) + "") * 2);
+
+        return sum;
+    }
+
+    // Return this number if it is a single digit, otherwise,
+    // return the sum of the two digits
+    private int getDigit(int number)
+    {
+        if (number < 9)
+            return number;
+        return number / 10 + number % 10;
+    }
+
+    // Return sum of odd-place digits in number
+    private int sumOfOddPlace(long number)
+    {
+        int sum = 0;
+        String num = number + "";
+        for (int i = getSize(number) - 1; i >= 0; i -= 2)
+            sum += Integer.parseInt(num.charAt(i) + "");
+        return sum;
+    }
+
+    // Return true if the digit d is a prefix for number
+    private boolean prefixMatched(long number, int d)
+    {
+        return getPrefix(number, getSize(d)) == d;
+    }
+
+    // Return the number of digits in d
+    private int getSize(long d)
+    {
+        String num = d + "";
+        return num.length();
+    }
+
+    // Return the first k number of digits from
+    // number. If the number of digits in number
+    // is less than k, return number.
+    private long getPrefix(long number, int k)
+    {
+        if (getSize(number) > k) {
+            String num = number + "";
+            return Long.parseLong(num.substring(0, k));
+        }
+        return number;
+    }
+
     private void onPlaceOrderButtonClick(RestaurantModel restaurantModel) {
+        if(Integer.parseInt(inputCardExpiry.getText().toString())!=0 &&inputCardExpiry.getText().toString().length()==1)
+            inputCardExpiry.setText("0"+inputCardExpiry.getText());
+
+
         if(TextUtils.isEmpty(inputName.getText().toString().trim())) {
             inputName.setError("Please enter name ");
             return;
         }
-        else if(inputPhone.getText().toString().length()<10) {
-            inputPhone.setError("Please enter Phone no. ");
+        else if(!Pattern.matches("(0|91)?[5-9][0-9]{9}",inputPhone.getText().toString())) {
+            inputPhone.setError("Please enter valid Phone no. ");
             return;
         }
         else if(isDeliveryOn && TextUtils.isEmpty(inputAddress.getText().toString().trim())) {
             inputAddress.setError("Please enter valid address ");
             return;
         }else if(isDeliveryOn && TextUtils.isEmpty(inputCity.getText().toString().trim())) {
-            inputCity.setError("Please enter city ");
+            inputCity.setError("Please enter valid city ");
             return;
         }else if(isDeliveryOn && inputState.getText().toString().length()<6) {
-            inputState.setError("Please enter Pin ");
+            inputState.setError("Please enter valid Pin ");
             return;
-        }else if( inputCardNumber.getText().toString().length()<16) {
-            inputCardNumber.setError("Please enter card number ");
+        }else if( TextUtils.isEmpty(inputCardNumber.getText().toString().trim())||!isValid(Long.parseLong(inputCardNumber.getText().toString()))) {
+            inputCardNumber.setError("Please enter correct card number ");
             return;
-        }else if( inputCardExpiry.getText().toString().equals("0")||Integer.parseInt(inputCardExpiry.getText().toString())>12 ) {
+        }else if( Integer.parseInt(inputCardExpiry.getText().toString())<1||Integer.parseInt(inputCardExpiry.getText().toString())>12 ) {
             inputCardExpiry.setError("MM");
             return;}
-        else if( !Pattern.matches("20[2-5][1-9]",inputCardExpiry2.getText().toString())) {
+
+        else if( !Pattern.matches("20[2-5][0-9]",inputCardExpiry2.getText().toString())) {
                 inputCardExpiry2.setError("YYYY");
                 return;}
         else if( inputCardPin.getText().toString().length()<3) {
             inputCardPin.setError("Please enter card pin/cvv ");
+            return;
+        }
+        else if(Integer.parseInt(inputCardExpiry2.getText().toString()+inputCardExpiry.getText().toString())<year()){
+         //   Toast.makeText(this,String.valueOf(year()), Toast.LENGTH_SHORT).show();
+
+//            Snackbar snackbar = Snackbar
+//                    .make(inputCardExpiry, "www.journaldev.com", Snackbar.LENGTH_LONG).setAction("100", new View.OnClickListener() {
+//                        @Override
+//                        public void onClick(View v) {
+                           Toast.makeText(PlaceYourOrderActivity.this, "YOUR CARD HAS EXPIRED THIS YEAR", Toast.LENGTH_SHORT).show();
+//                        }
+//                    });
+//            snackbar.show();
+
+       //     Toast.makeText(PlaceYourOrderActivity.this, "YOUR CARD HAS EXPIRED THIS YEAR", Toast.LENGTH_SHORT).show();
             return;
         }
 
