@@ -5,5 +5,4 @@
 •	Language for UI - XML
 •	Firebase Google Credencial Login
 •	Firebase Cloud Firestore
-•	Language for UI - XML
-•	Language for UI - XML
+
